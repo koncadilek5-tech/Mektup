@@ -6,6 +6,43 @@
 <title>Sana 💌</title>
 
 <style>
+    .heart {
+  position: absolute;
+  bottom: 20px;
+  font-size: 20px;
+  animation: floatUp 3s ease-in infinite;
+  opacity: 0;
+}
+
+@keyframes floatUp {
+  0% {
+    transform: translateY(0);
+    opacity: 0;
+  }
+  20% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-180px);
+    opacity: 0;
+  }
+}
+    <script>
+function createHeart() {
+  const heart = document.createElement("div");
+  heart.className = "heart";
+  heart.innerHTML = "❤️";
+  heart.style.left = Math.random() * 260 + "px";
+
+  document.querySelector(".envelope").appendChild(heart);
+
+  setTimeout(() => {
+    heart.remove();
+  }, 3000);
+}
+
+setInterval(createHeart, 600);
+</script>
 body {
     margin: 0;
     min-height: 100vh;
